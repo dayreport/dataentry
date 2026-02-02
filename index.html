@@ -14,12 +14,7 @@ body{
  background:linear-gradient(135deg,#babeca,#e4e5e9);
 }
 .hidden{display:none}
-
-/* Header center aligned */
-header{
- text-align:center;
- padding:15px
-}
+header{text-align:center;padding:15px}
 .logo{
  display:flex;
  flex-direction:column;
@@ -34,8 +29,6 @@ header{
  color:#1f09e8;
  text-align:center;
 }
-
-/* Container for content */
 .container{
  max-width:500px;
  width:95%;
@@ -44,10 +37,8 @@ header{
  display:flex;
  flex-direction:column;
  gap:10px;
- text-align:left; /* ALL labels & inputs LEFT aligned */
+ text-align:left;
 }
-
-/* Home buttons row */
 .home-buttons{
  display:flex;
  flex-direction:row;
@@ -55,22 +46,20 @@ header{
  justify-content:center;
  flex-wrap:wrap;
 }
-
-/* Cards & Inputs */
 .card{
  background:#ffffffee;
  border-radius:12px;
  padding:12px;
  box-shadow:0 3px 8px rgba(0,0,0,.2);
  flex:1;
- text-align:center; /* buttons text center */
+ text-align:center;
 }
 label{
  font-weight:bold;
  font-size:14px;
  margin-bottom:2px;
  display:block;
- text-align:left; /* labels left aligned */
+ text-align:left;
 }
 input,select{
  width:100%;
@@ -79,7 +68,7 @@ input,select{
  border-radius:8px;
  border:1px solid #bbb;
  font-size:16px;
- text-align:left; /* input text left aligned */
+ text-align:left;
  box-shadow:inset 0 2px 4px rgba(0,0,0,0.1);
 }
 .btn{
@@ -108,8 +97,6 @@ input,select{
  text-align:center;
  font-size:17px;
 }
-
-/* Footer styling */
 footer{
  background:#babdc5;
  color:#0e0d0d;
@@ -121,8 +108,6 @@ footer{
  position:relative;
 }
 footer span{color:red;font-weight:bold}
-
-/* Mobile friendly adjustments */
 @media(max-width:480px){
  .logo span{font-size:20px}
  input,select{font-size:14px;padding:12px;}
@@ -132,10 +117,9 @@ footer span{color:red;font-weight:bold}
 }
 </style>
 </head>
-
 <body>
 
-<!-- ================= HOME ================= -->
+<!-- HOME -->
 <div id="home">
 <header>
  <div class="logo">
@@ -143,19 +127,17 @@ footer span{color:red;font-weight:bold}
   <span>DcsDayReport</span>
  </div>
 </header>
-
 <div class="container home-buttons">
  <div class="card"><button class="btn blue btn-small" onclick="go('entry')">Data Entry</button></div>
  <div class="card"><button class="btn red btn-small" onclick="go('reedit')">Data Re-Update</button></div>
 </div>
-
 <footer>
   System Developer By: Dharan Dcs Team<br>
   <span>Contact: 9842459642</span>
 </footer>
 </div>
 
-<!-- ================= DATA ENTRY ================= -->
+<!-- DATA ENTRY -->
 <div id="entry" class="hidden">
 <header><div class="logo"><span>Data Entry</span></div></header>
 <div class="container card" id="entryForm"></div>
@@ -164,14 +146,13 @@ footer span{color:red;font-weight:bold}
  <div id="entryMsg" class="success"></div>
  <button class="btn red btn-small" onclick="go('home')">Back</button>
 </div>
-
 <footer>
   System Developer By: Dharan Dcs Team<br>
   <span>Contact: 9842459642</span>
 </footer>
 </div>
 
-<!-- ================= REEDIT ================= -->
+<!-- REEDIT -->
 <div id="reedit" class="hidden">
 <header><div class="logo"><span>Data Re-Update</span></div></header>
 <div class="container card">
@@ -188,14 +169,13 @@ footer span{color:red;font-weight:bold}
 <div class="container">
  <button class="btn red btn-small" onclick="go('home')">Back</button>
 </div>
-
 <footer>
   System Developer By: Dharan Dcs Team<br>
   <span>Contact: 9842459642</span>
 </footer>
 </div>
 
-<!-- ================= EDIT ================= -->
+<!-- EDIT -->
 <div id="edit" class="hidden">
 <header><div class="logo"><span>Edit Data</span></div></header>
 <div class="container card" id="editForm"></div>
@@ -204,7 +184,6 @@ footer span{color:red;font-weight:bold}
  <div id="editMsg" class="success"></div>
  <button class="btn red btn-small" onclick="go('reedit')">Back</button>
 </div>
-
 <footer>
   System Developer By: Dharan Dcs Team<br>
   <span>Contact: 9842459642</span>
@@ -231,7 +210,7 @@ const headers=[
 "मिटर रिडिङ्ग छड्के बाट भेटियकाे कैफियतकाे विवरण",
 "चुवावट भेटियकाे वा समातियकाे स‌ख्या",
 "चुवावट बाट असुल गरियकाे रकम",
-"वितरण केन्द्रकाे नाम","मिति"
+"वितरण केन्द्रकाे नाम","Security Code","मिति"
 ];
 
 const dcsList=[
@@ -265,7 +244,9 @@ const f=document.getElementById("entryForm"); f.innerHTML="";
 headers.forEach(h=>{
  if(h==="वितरण केन्द्रकाे नाम"){
   f.innerHTML+=`<label>${h}</label><input list='dcsList' id='e_${h}' required>`;
- }else{
+ } else if(h==="Security Code"){
+  f.innerHTML+=`<label>${h}</label><input id='e_${h}' type='password' required>`;
+ } else{
   f.innerHTML+=`<label>${h}</label><input id="e_${h}">`;
  }
 });
@@ -276,64 +257,62 @@ dcsList.forEach(d=>document.getElementById("dcsList").innerHTML+=`<option value=
 function submitEntry(){
   const date = document.getElementById("e_मिति").value;
   const dcs = document.getElementById("e_वितरण केन्द्रकाे नाम").value;
+  const sec = document.getElementById("e_Security Code").value;
 
-  if(dcs.trim() === ""){
+  if(dcs.trim()===""){
     alert("कृपया वितरण केन्द्रकाे नाम चयन गर्नुहोस्");
     return;
   }
-
+  if(!sec.trim()){
+    alert("कृपया Security Code भर्नुहोस्");
+    return;
+  }
+  if(securityMap[dcs]!==sec){
+    alert("Security Code गलत छ");
+    return;
+  }
   if(!/^\d{4}\.\d{2}\.\d{2}$/.test(date)){
     alert("मिति yyyy.mm.dd format मा राख्नुहोस्");
     return;
   }
 
-  const fd = new FormData();
-  headers.forEach(h => fd.append(h, document.getElementById("e_"+h).value));
+  const fd=new FormData();
+  headers.forEach(h=>fd.append(h,document.getElementById("e_"+h).value));
 
-  fetch(scriptUrl, {method:"POST", body: fd})
-    .then(() => {
-      document.getElementById("entryMsg").innerText = "✔ Data Submitted Successfully";
-      headers.forEach(h => document.getElementById("e_"+h).value = "");
+  fetch(scriptUrl,{method:"POST",body:fd})
+    .then(()=> {
+      document.getElementById("entryMsg").innerText="✔ Data Submitted Successfully";
+      headers.forEach(h=>document.getElementById("e_"+h).value="");
     });
 }
 
 function normalize(d){ return d.replace(/[./]/g,'-').trim(); }
 
 function searchData() {
-  // Check if वितरण केन्द्र field is empty
-  if (!sDcs.value.trim()) {
+  if(!sDcs.value.trim()){
     alert("कृपया सम्बन्धित वितरण केन्द्रको विवरण भर्नुहोस् ।।।");
     return;
   }
-
-  // Check if security code matches
-  if (securityMap[sDcs.value] !== sSec.value) {
+  if(securityMap[sDcs.value]!==sSec.value){
     alert("Invalid Security Code");
     return;
   }
-
-  // Fetch data from Google Script
   fetch(scriptUrl)
-    .then(r => r.json())
-    .then(all => {
-      const res = all.filter(rw => 
-        normalize(rw["मिति"]) === normalize(sDate.value) &&
-        rw["वितरण केन्द्रकाे नाम"] === sDcs.value
-      );
-
-      resultBox.innerHTML = "";
-      if(res.length === 0){
-        resultBox.innerHTML = "<div class='card'>No data found</div>";
-      }
-
-      res.forEach(r => {
-        resultBox.innerHTML += `<div class="card" onclick='openEdit(${JSON.stringify(r)})'>
-          <b>${r["मिति"]}</b> | ${r["वितरण केन्द्रकाे नाम"]}<br>Click to edit
-        </div>`;
-      });
+  .then(r=>r.json())
+  .then(all=>{
+    const res = all.filter(rw=>
+      normalize(rw["मिति"])===normalize(sDate.value) &&
+      rw["वितरण केन्द्रकाे नाम"]===sDcs.value
+    );
+    resultBox.innerHTML="";
+    if(res.length===0) resultBox.innerHTML="<div class='card'>No data found</div>";
+    res.forEach(r=>{
+      resultBox.innerHTML+=`<div class="card" onclick='openEdit(${JSON.stringify(r)})'>
+        <b>${r["मिति"]}</b> | ${r["वितरण केन्द्रकाे नाम"]}<br>Click to edit
+      </div>`;
     });
+  });
 }
-
 
 function openEdit(r){
 editRow=r;
