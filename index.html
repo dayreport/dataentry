@@ -1,112 +1,29 @@
 <!DOCTYPE html>
-<html lang="ne">
+<html lang="ने">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DcsDayReport</title>
-
 <style>
-*{box-sizing:border-box;font-family:Arial, sans-serif;margin:0;padding:0}
-body{
- min-height:100vh;
- display:flex;
- flex-direction:column;
- background:linear-gradient(135deg,#babeca,#e4e5e9);
-}
+*{box-sizing:border-box;font-family:Arial,sans-serif;margin:0;padding:0}
+body{ min-height:100vh; display:flex; flex-direction:column; background:linear-gradient(135deg,#babeca,#e4e5e9); }
 .hidden{display:none}
 header{text-align:center;padding:15px}
-.logo{
- display:flex;
- flex-direction:column;
- justify-content:center;
- align-items:center;
- gap:5px;
-}
+.logo{ display:flex; flex-direction:column; justify-content:center; align-items:center; gap:5px; }
 .logo img{height:80px;width:auto;}
-.logo span{
- font-size:24px;
- font-weight:bold;
- color:#1f09e8;
- text-align:center;
-}
-.container{
- max-width:500px;
- width:95%;
- margin:10px auto;
- padding:5px;
- display:flex;
- flex-direction:column;
- gap:10px;
- text-align:left;
-}
-.home-buttons{
- display:flex;
- flex-direction:row;
- gap:10px;
- justify-content:center;
- flex-wrap:wrap;
-}
-.card{
- background:#ffffffee;
- border-radius:12px;
- padding:12px;
- box-shadow:0 3px 8px rgba(0,0,0,.2);
- flex:1;
- text-align:center;
-}
-label{
- font-weight:bold;
- font-size:14px;
- margin-bottom:2px;
- display:block;
- text-align:left;
-}
-input,select{
- width:100%;
- padding:14px;
- margin:5px 0 8px;
- border-radius:8px;
- border:1px solid #bbb;
- font-size:16px;
- text-align:left;
- box-shadow:inset 0 2px 4px rgba(0,0,0,0.1);
-}
-.btn{
- width:100%;
- padding:14px;
- border:none;
- border-radius:8px;
- font-size:16px;
- font-weight:bold;
- cursor:pointer;
- margin:5px 0;
- box-shadow:0 2px 4px rgba(0,0,0,0.3);
- text-align:center;
-}
-.btn-small{
- padding:12px;
- font-size:14px;
-}
+.logo span{ font-size:24px; font-weight:bold; color:#1f09e8; text-align:center; }
+.container{ max-width:500px; width:95%; margin:10px auto; padding:5px; display:flex; flex-direction:column; gap:10px; text-align:left; }
+.home-buttons{ display:flex; flex-direction:row; gap:10px; justify-content:center; flex-wrap:wrap; }
+.card{ background:#ffffffee; border-radius:12px; padding:12px; box-shadow:0 3px 8px rgba(0,0,0,.2); flex:1; text-align:center; }
+label{ font-weight:bold; font-size:14px; margin-bottom:2px; display:block; text-align:left; }
+input,select{ width:100%; padding:14px; margin:5px 0 8px; border-radius:8px; border:1px solid #bbb; font-size:16px; text-align:left; box-shadow:inset 0 2px 4px rgba(0,0,0,0.1); }
+.btn{ width:100%; padding:14px; border:none; border-radius:8px; font-size:16px; font-weight:bold; cursor:pointer; margin:5px 0; box-shadow:0 2px 4px rgba(0,0,0,0.3); text-align:center; }
+.btn-small{ padding:12px; font-size:14px; }
 .blue{background:rgb(25, 224, 68);color:#fff}
 .red{background:#f81520;color:#fff}
 .green{background:#221fd4;color:#fff}
-.success{
- color:#13cf13;
- font-weight:bold;
- margin-top:8px;
- text-align:center;
- font-size:17px;
-}
-footer{
- background:#babdc5;
- color:#0e0d0d;
- text-align:center;
- font-weight:bold;
- padding:10px;
- font-size:14px;
- margin-top:auto;
- position:relative;
-}
+.success{ color:#13cf13; font-weight:bold; margin-top:8px; text-align:center; font-size:17px; }
+footer{ background:#babdc5; color:#0e0d0d; text-align:center; font-weight:bold; padding:10px; font-size:14px; margin-top:auto; position:relative; }
 footer span{color:red;font-weight:bold}
 @media(max-width:480px){
  .logo span{font-size:20px}
@@ -131,10 +48,7 @@ footer span{color:red;font-weight:bold}
  <div class="card"><button class="btn blue btn-small" onclick="go('entry')">Data Entry</button></div>
  <div class="card"><button class="btn red btn-small" onclick="go('reedit')">Data Re-Update</button></div>
 </div>
-<footer>
-  System Developed By: Dharan Dcs Team<br>
-  <span>Contact: 9842459642</span>
-</footer>
+<footer> System Developed By: Dharan Dcs Team<br> <span>Contact: 9842459642</span> </footer>
 </div>
 
 <!-- DATA ENTRY -->
@@ -146,10 +60,7 @@ footer span{color:red;font-weight:bold}
  <div id="entryMsg" class="success"></div>
  <button class="btn red btn-small" onclick="go('home')">Back</button>
 </div>
-<footer>
-  System Developed By: Dharan Dcs Team<br>
-  <span>Contact: 9842459642</span>
-</footer>
+<footer> System Developed By: Dharan Dcs Team<br> <span>Contact: 9842459642</span> </footer>
 </div>
 
 <!-- REEDIT -->
@@ -169,10 +80,7 @@ footer span{color:red;font-weight:bold}
 <div class="container">
  <button class="btn red btn-small" onclick="go('home')">Back</button>
 </div>
-<footer>
-  System Developed By: Dharan Dcs Team<br>
-  <span>Contact: 9842459642</span>
-</footer>
+<footer> System Developed By: Dharan Dcs Team<br> <span>Contact: 9842459642</span> </footer>
 </div>
 
 <!-- EDIT -->
@@ -184,17 +92,14 @@ footer span{color:red;font-weight:bold}
  <div id="editMsg" class="success"></div>
  <button class="btn red btn-small" onclick="go('reedit')">Back</button>
 </div>
-<footer>
-  System Developed By: Dharan Dcs Team<br>
-  <span>Contact: 9842459642</span>
-</footer>
+<footer> System Developed By: Dharan Dcs Team<br> <span>Contact: 9842459642</span> </footer>
 </div>
 
 <script>
 const scriptUrl="https://script.google.com/macros/s/AKfycbxmJsKeMD4PgwWI4WLSMUSGk64v8B9qOliWbAMrBKjMsPIOD4EkuTvJ7sXx8rIgT3_2/exec";
 
 const headers=[
-"ला_का_सख्या","ला_का_रकम","रि_क_सख्या","रि_क_असुलि_रकम",
+"ला_का_सख्या","ला_का_रकम","रि_क_सख्या","रि_क_असुलि_रकम","Reconnections बापत उठेको सेवा सुल्क रकम",
 "नयाँ_ग्राहक_कायम_लगत_सख्या_सिङ्गल_फेज",
 "नयाँ_ग्राहक_कायम_लगत_सख्या_थ्री_फेज",
 "मिटर_बदलि_सख्या_सिङ्गल_फेज",
@@ -217,7 +122,7 @@ const dcsList=[
 "DharanDcs","BiratnagarDcs","DuhabiDcs","TaplejungDcs","KhadbariDcs",
 "DhankutaDcs","TerhathumDcs","PachatharDcs","OkhaldhungaDcs","BhojpurDcs",
 "InaruwaDcs","ItahariDcs","DamakDcs","UrlabariDcs","SolukhumbuDcs",
-"UdayapurDcs","bhadrapurDcs","AnarmaniDcs","IlamDcs","GauradahaDcs",
+"UdayapurDcs","BhadrapurDcs","AnarmaniDcs","IlamDcs","GauradahaDcs",
 "DiktelDcs","RangeliDcs","BelbariDCs","DhulabariDcs"
 ];
 
@@ -259,22 +164,10 @@ function submitEntry(){
   const dcs = document.getElementById("e_वितरण केन्द्रकाे नाम").value;
   const sec = document.getElementById("e_Security Code").value;
 
-  if(dcs.trim()===""){
-    alert("कृपया वितरण केन्द्रकाे नाम चयन गर्नुहोस्");
-    return;
-  }
-  if(!sec.trim()){
-    alert("कृपया Security Code भर्नुहोस्");
-    return;
-  }
-  if(securityMap[dcs]!==sec){
-    alert("Security Code गलत छ");
-    return;
-  }
-  if(!/^\d{4}\.\d{2}\.\d{2}$/.test(date)){
-    alert("मिति yyyy.mm.dd format मा राख्नुहोस्");
-    return;
-  }
+  if(dcs.trim()===""){ alert("कृपया वितरण केन्द्रकाे नाम चयन गर्नुहोस्"); return; }
+  if(!sec.trim()){ alert("कृपया Security Code भर्नुहोस्"); return; }
+  if(securityMap[dcs]!==sec){ alert("Security Code गलत छ"); return; }
+  if(!/^\d{4}\.\d{2}\.\d{2}$/.test(date)){ alert("मिति yyyy.mm.dd format मा राख्नुहोस्"); return; }
 
   const fd=new FormData();
   headers.forEach(h=>fd.append(h,document.getElementById("e_"+h).value));
@@ -289,14 +182,8 @@ function submitEntry(){
 function normalize(d){ return d.replace(/[./]/g,'-').trim(); }
 
 function searchData() {
-  if(!sDcs.value.trim()){
-    alert("कृपया सम्बन्धित वितरण केन्द्रको विवरण भर्नुहोस् ।।।");
-    return;
-  }
-  if(securityMap[sDcs.value]!==sSec.value){
-    alert("Invalid Security Code");
-    return;
-  }
+  if(!sDcs.value.trim()){ alert("कृपया सम्बन्धित वितरण केन्द्रको विवरण भर्नुहोस् ।।।"); return; }
+  if(securityMap[sDcs.value]!==sSec.value){ alert("Invalid Security Code"); return; }
   fetch(scriptUrl)
   .then(r=>r.json())
   .then(all=>{
@@ -332,3 +219,4 @@ fetch(scriptUrl,{method:"POST",body:fd})
 </script>
 </body>
 </html>
+
